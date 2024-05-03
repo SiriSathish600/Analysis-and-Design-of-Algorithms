@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int arr[50];
+int size;
+
+void selection_sort();
+
+int main() {
+    selection_sort();
+    return 0;
+}
+
+void selection_sort() {
+printf("enter the size of the array: ");
+    scanf("%d", &size);
+printf("enter the array elements:\n");
+    for (int i = 0; i < size; i++) { 
+        scanf("%d", &arr[i]);
+    }
+
+for (int i = 0; i < size - 1; i++) {
+    int min_index = i;
+    for (int j = i + 1; j < size; j++) {
+        if (arr[j] < arr[min_index]) {
+            min_index = j;
+            }
+        }
+       
+        int temp = arr[i];
+        arr[i] = arr[min_index];
+        arr[min_index] = temp;
+    }
+
+    printf("sorted array in ascending order:\n");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+}
+
+enter the size of the array: 5
+enter the array elements:
+3 4 8 9 2
+sorted array in ascending order:
+2 3 4 8 9 
